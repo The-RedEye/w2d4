@@ -126,37 +126,48 @@ end
 #     2-dimensional array: [['some data']]
 #     3-dimensional array: [[['some data']]]
 def flatten(data)
-  result = []
-  # debugger
-  if !data.is_a?(Array)                 # data is not array, makes it last ele
-    result << data                      # so returns string to shovel
-  elsif !data[0].is_a?(Array)
-         debugger
-    result<< data[0]
-    data.shift
-    result << flatten(data)
-          debugger
-  elsif data = []
-    return
-  elsif data[0].is_a?(Array)      #if 1st_ele is an array
-     debugger
-    if data[0] == []              #check if empty and shift and recurse if so
-      data.shift
-      result<<flatten(data)
-    else                          #if not empty, shovel first ele, recurse
-      result << data[0]
-      data[0].shift
-      result << flatten(data)
-    end
-    # debugger
-  else
-    result<<data[0]
-    data[0].shift
-    result << flatten(data)
+
+  arr = []
+  if !data.is_a?(Array) 
+    return [data]
   end
 
-result
+  data.each do |ele|
+    arr += flatten(ele) 
+  end
 
-end 
+  arr
 
-       
+  end 
+
+#   result = []
+#   # debugger
+#   if !data.is_a?(Array)                 # data is not array, makes it last ele
+#     result << data                      # so returns string to shovel
+#   elsif !data[0].is_a?(Array)
+#         #  debugger
+#     result<< data[0]
+#     data.shift
+#     result << flatten(data)
+#           # debugger
+#   elsif data = []
+#     return
+#   elsif data[0].is_a?(Array)      #if 1st_ele is an array
+#      debugger
+#     if data[0] == []              #check if empty and shift and recurse if so
+#       data.shift
+#       result<<flatten(data)
+#     else                          #if not empty, shovel first ele, recurse
+#       result << data[0]
+#       data[0].shift
+#       result << flatten(data)
+#     end
+#     # debugger
+#   else
+#     result<<data[0]
+#     data[0].shift
+#     result << flatten(data)
+#   end
+
+# result
+

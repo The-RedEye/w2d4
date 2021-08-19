@@ -5,7 +5,21 @@
 # Example:
 #
 # all_vowel_pairs(["goat", "action", "tear", "impromptu", "tired", "europe"])   # => ["action europe", "tear impromptu"]
+def get_vowels(str)
+
+end
+
+
 def all_vowel_pairs(words)
+    vowels ="aeiou"
+    tempVowelArr = ""
+    result = []
+
+    (0...words.length-1).each do |i|
+        tempVowelArr= get_vowels(word[i]) + get_vowels(words[i+1])
+
+    end
+
 
 end
 
